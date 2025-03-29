@@ -13,10 +13,10 @@ jobs:
         run: |
           endpoints=(
             "https://languagedetection-9l89.onrender.com"
-            "wss://languagedetection-virginia.onrender.com"
-            "wss://languagedetection-ohio.onrender.com"
-            "wss://languagedetection-europe.onrender.com"
-            "wss://languagedetection-singapore.onrender.com"
+            "https://languagedetection-virginia.onrender.com"
+            "https://languagedetection-ohio.onrender.com"
+            "https://languagedetection-europe.onrender.com"
+            "https://languagedetection-singapore.onrender.com"
           )
 
           for url in "${endpoints[@]}"; do
