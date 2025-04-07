@@ -1,25 +1,25 @@
-name: Keep Render Backend Alive
-
-on:
-  schedule:
-    - cron: "*/6 * * * *"  # Runs every 6 minutes
-  workflow_dispatch:  # Allows manual trigger
-
-jobs:
-  keep-backend-alive:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Ping Render Backend
-        run: |
-          endpoints=(
-            "https://languagedetection-9l89.onrender.com"
-            "https://languagedetection-virginia.onrender.com"
-            "https://languagedetection-ohio.onrender.com"
-            "https://languagedetection-europe.onrender.com"
-            "https://languagedetection-singapore.onrender.com"
-          )
-
-          for url in "${endpoints[@]}"; do
-            echo "Pinging $url"
-            curl --max-time 20 --retry 3 --retry-delay 5 --retry-connrefused -s -o /dev/null -w "%{http_code}\n" "$url"
-          done
+#name: Keep Render Backend Alive
+#
+#on:
+#  schedule:
+#    - cron: "*/6 * * * *"  # Runs every 6 minutes
+#  workflow_dispatch:  # Allows manual trigger
+#
+#jobs:
+#  keep-backend-alive:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Ping Render Backend
+#        run: |
+#          endpoints=(
+#            "https://languagedetection-9l89.onrender.com"
+#            "https://languagedetection-virginia.onrender.com"
+#            "https://languagedetection-ohio.onrender.com"
+#            "https://languagedetection-europe.onrender.com"
+#            "https://languagedetection-singapore.onrender.com"
+#          )
+#
+#          for url in "${endpoints[@]}"; do
+#            echo "Pinging $url"
+#            curl --max-time 20 --retry 3 --retry-delay 5 --retry-connrefused -s -o /dev/null -w "%{http_code}\n" "$url"
+#          done
